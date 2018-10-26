@@ -259,11 +259,40 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
     </ul>
   
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -410,6 +439,270 @@
         
           
             
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/javascript-01/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mcyrj">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马过河">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/javascript-01/" itemprop="url">
+                  基本类型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-25 14:29:22 / 修改时间：15:13:54" itemprop="dateCreated datePublished" datetime="2018-10-25T14:29:22+08:00">2018-10-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Javascript开发规范/" itemprop="url" rel="index"><span itemprop="name">Javascript开发规范</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><ul>
+<li><p><strong>原始值</strong>: 存取直接作用于它自身。</p>
+<ul>
+<li><code>string</code></li>
+<li><code>number</code></li>
+<li><code>boolean</code></li>
+<li><code>null</code></li>
+<li><p><code>undefined</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> bar = foo;</span><br><span class="line"></span><br><span class="line">bar = <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo, bar); <span class="comment">// =&gt; 1, 9</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>复杂类型</strong>: 存取时作用于它自身值的引用。</p>
+<ul>
+<li><code>object</code></li>
+<li><code>array</code></li>
+<li><p><code>function</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> bar = foo;</span><br><span class="line"></span><br><span class="line">bar[<span class="number">0</span>] = <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="number">0</span>], bar[<span class="number">0</span>]); <span class="comment">// =&gt; 9, 9</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>判断具体类型</strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [];</span><br><span class="line"><span class="keyword">const</span> nodes = <span class="built_in">document</span>.querySelectorAll(<span class="string">"h1"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getType = <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">Object</span>.prototype.toString.call(v);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getType(array)) <span class="comment">// =&gt; "[object Array]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getType(nodes)) <span class="comment">// =&gt; "[object NodeList]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(nodes)) <span class="comment">// =&gt; "object"</span></span><br></pre></td></tr></table></figure>
+<p>  <strong>注意</strong>： 通过<code>typeof</code>也可以获取变量的类型，但不是太准确，酌情使用</p>
+</li>
+</ul>
+<ul>
+<li><p>null vs undefined</p>
+<p>  <code>null</code>是一个对象，<code>undefined</code>是<code>window</code>的一个属性。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span>(<span class="literal">null</span>) <span class="comment">// =&gt; "object"</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">undefined</span>) <span class="comment">// =&gt; "undefined"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getType = <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">Object</span>.prototype.toString.call(v);</span><br><span class="line"></span><br><span class="line">getType(<span class="literal">null</span>) <span class="comment">// =&gt; "[object Null]"</span></span><br><span class="line">getType(<span class="literal">undefined</span>) <span class="comment">// =&gt; "[object undefined]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">null</span> == <span class="literal">undefined</span> ) <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">null</span> === <span class="literal">undefined</span> ) <span class="comment">// =&gt; true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><ul>
+<li>使用字面值创建对象。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> item = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span>  item = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不要使用<a href="http://es5.github.io/#x7.6.1" target="_blank" rel="noopener">保留字</a>作为键名。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> superman = &#123;</span><br><span class="line">    <span class="keyword">default</span>: &#123; <span class="attr">clark</span>: <span class="string">'kent'</span> &#125;,</span><br><span class="line">    private: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> superman = &#123;</span><br><span class="line">    defaults: &#123; <span class="attr">clark</span>: <span class="string">'kent'</span> &#125;,</span><br><span class="line">    hidden: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用同义词替换需要使用的保留字。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> superman = &#123;</span><br><span class="line">    class: 'alien'</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> superman = &#123;</span><br><span class="line">  klass: <span class="string">'alien'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> superman = &#123;</span><br><span class="line">  type: <span class="string">'alien'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建有动态属性名的对象时，使用可被计算的属性名称。<br><a href="../codes/basic-object.js">include</a></li>
+</ul>
+<ul>
+<li>使用对象属性值的简写。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> lukeSkywalker = <span class="string">'Luke Skywalker'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  lukeSkywalker: lukeSkywalker,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  lukeSkywalker,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在对象属性声明前把简写的属性分组。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> anakinSkywalker = <span class="string">'Anakin Skywalker'</span>;</span><br><span class="line"><span class="keyword">const</span> lukeSkywalker = <span class="string">'Luke Skywalker'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    episodeOne: <span class="number">1</span>,</span><br><span class="line">    twoJedisWalkIntoACantina: <span class="number">2</span>,</span><br><span class="line">    lukeSkywalker,</span><br><span class="line">    episodeThree: <span class="number">3</span>,</span><br><span class="line">    mayTheFourth: <span class="number">4</span>,</span><br><span class="line">    anakinSkywalker,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    lukeSkywalker,</span><br><span class="line">    anakinSkywalker,</span><br><span class="line">    episodeOne: <span class="number">1</span>,</span><br><span class="line">    twoJedisWalkIntoACantina: <span class="number">2</span>,</span><br><span class="line">    episodeThree: <span class="number">3</span>,</span><br><span class="line">    mayTheFourth: <span class="number">4</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><ul>
+<li>使用直接量创建数组。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> items = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> items = [];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>向数组增加元素时使用 Array#push 来替代直接赋值。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> someStack = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line">someStack[someStack.length] = <span class="string">'something string'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">someStack.push(<span class="string">'something string'</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用拓展运算符 <code>...</code> 复制数组。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> len = items.length;</span><br><span class="line"><span class="keyword">const</span> itemsCopy = [];</span><br><span class="line"><span class="keyword">let</span> i;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    itemsCopy[i] = items[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> itemsCopy = [...items];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 Array#slice 将类数组对象转换成数组。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trigger</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><ul>
+<li>使用单引号 <code>&#39;&#39;</code> 包裹字符串。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">"Bob Parr"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">'Bob Parr'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> fullName = <span class="string">"Bob "</span> + <span class="keyword">this</span>.lastName;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> fullName = <span class="string">'Bob '</span> + <span class="keyword">this</span>.lastName;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>超过 100 个字符的字符串应该使用连接符写成多行。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> errorMessage = <span class="string">'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> errorMessage = <span class="string">'This is a super long error that was thrown because \</span></span><br><span class="line"><span class="string">of Batman. When you stop to think about how Batman had anything to do \</span></span><br><span class="line"><span class="string">with this, you would get nowhere \</span></span><br><span class="line"><span class="string">fast.'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> errorMessage = <span class="string">'This is a super long error that was thrown because '</span> +</span><br><span class="line">    <span class="string">'of Batman. When you stop to think about how Batman had anything to do '</span> +</span><br><span class="line">    <span class="string">'with this, you would get nowhere fast.'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>程序化生成字符串时，使用模板字符串代替字符串连接。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'How are you, '</span> + name + <span class="string">'?'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="string">'How are you, '</span>, name, <span class="string">'?'</span>].join();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`How are you, <span class="subst">$&#123;name&#125;</span>?`</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><ul>
+<li>函数表达式：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匿名函数表达式</span></span><br><span class="line"><span class="keyword">const</span> anonymous = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名函数表达式</span></span><br><span class="line"><span class="keyword">const</span> named = <span class="function"><span class="keyword">function</span> <span class="title">named</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 立即调用的函数表达式（IIFE）</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Welcome to the Internet. Please follow me.'</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>永远不要在一个非函数代码块（<code>if</code>、<code>while</code> 等）中声明一个函数，然后把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">if</span> (currentUser) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Nope.'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">let</span> test;</span><br><span class="line"><span class="keyword">if</span> (currentUser) &#123;</span><br><span class="line">    test = <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Yup.'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>永远不要把参数命名为 <code>arguments</code>。这将取代函数作用域内的 <code>arguments</code> 对象。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nope</span>(<span class="params">name, options, arguments</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...stuff...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">yup</span>(<span class="params">name, options, args</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...stuff...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>尽量少用 arguments。可以选择 rest 语法 … 替代。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">concatenateAll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> args.join(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">concatenateAll</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> args.join(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>直接给函数的参数指定默认值，不要使用一个变化的函数参数。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleThings</span>(<span class="params">opts</span>) </span>&#123;</span><br><span class="line">  opts = opts || &#123;&#125;;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleThings</span>(<span class="params">opts = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>直接给函数参数赋值时需要避免副作用。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params">a = b++</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line">count();  <span class="comment">// =&gt; 1</span></span><br><span class="line">count();  <span class="comment">// =&gt; 2</span></span><br><span class="line">count(<span class="number">3</span>); <span class="comment">// =&gt; 3</span></span><br><span class="line">count();  <span class="comment">// =&gt; 3</span></span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -943,270 +1236,6 @@
 <p><a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">理解 RESTful 架构</a></p>
 <p><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">RESTful API 设计指南</a></p>
 <p><a href="https://zh.wikipedia.org/zh-hans/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="noopener">HTTP 状态码- 维基百科</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/javascript-01/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="mcyrj">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马过河">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/25/javascript-01/" itemprop="url">
-                  基本类型
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-25 14:29:22 / 修改时间：15:13:54" itemprop="dateCreated datePublished" datetime="2018-10-25T14:29:22+08:00">2018-10-25</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Javascript开发规范/" itemprop="url" rel="index"><span itemprop="name">Javascript开发规范</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><ul>
-<li><p><strong>原始值</strong>: 存取直接作用于它自身。</p>
-<ul>
-<li><code>string</code></li>
-<li><code>number</code></li>
-<li><code>boolean</code></li>
-<li><code>null</code></li>
-<li><p><code>undefined</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> bar = foo;</span><br><span class="line"></span><br><span class="line">bar = <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo, bar); <span class="comment">// =&gt; 1, 9</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><strong>复杂类型</strong>: 存取时作用于它自身值的引用。</p>
-<ul>
-<li><code>object</code></li>
-<li><code>array</code></li>
-<li><p><code>function</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> bar = foo;</span><br><span class="line"></span><br><span class="line">bar[<span class="number">0</span>] = <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="number">0</span>], bar[<span class="number">0</span>]); <span class="comment">// =&gt; 9, 9</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><strong>判断具体类型</strong></p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [];</span><br><span class="line"><span class="keyword">const</span> nodes = <span class="built_in">document</span>.querySelectorAll(<span class="string">"h1"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getType = <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">Object</span>.prototype.toString.call(v);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getType(array)) <span class="comment">// =&gt; "[object Array]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getType(nodes)) <span class="comment">// =&gt; "[object NodeList]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(nodes)) <span class="comment">// =&gt; "object"</span></span><br></pre></td></tr></table></figure>
-<p>  <strong>注意</strong>： 通过<code>typeof</code>也可以获取变量的类型，但不是太准确，酌情使用</p>
-</li>
-</ul>
-<ul>
-<li><p>null vs undefined</p>
-<p>  <code>null</code>是一个对象，<code>undefined</code>是<code>window</code>的一个属性。</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span>(<span class="literal">null</span>) <span class="comment">// =&gt; "object"</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">undefined</span>) <span class="comment">// =&gt; "undefined"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getType = <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">Object</span>.prototype.toString.call(v);</span><br><span class="line"></span><br><span class="line">getType(<span class="literal">null</span>) <span class="comment">// =&gt; "[object Null]"</span></span><br><span class="line">getType(<span class="literal">undefined</span>) <span class="comment">// =&gt; "[object undefined]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">null</span> == <span class="literal">undefined</span> ) <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">null</span> === <span class="literal">undefined</span> ) <span class="comment">// =&gt; true</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><ul>
-<li>使用字面值创建对象。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> item = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span>  item = &#123;&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>不要使用<a href="http://es5.github.io/#x7.6.1" target="_blank" rel="noopener">保留字</a>作为键名。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> superman = &#123;</span><br><span class="line">    <span class="keyword">default</span>: &#123; <span class="attr">clark</span>: <span class="string">'kent'</span> &#125;,</span><br><span class="line">    private: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> superman = &#123;</span><br><span class="line">    defaults: &#123; <span class="attr">clark</span>: <span class="string">'kent'</span> &#125;,</span><br><span class="line">    hidden: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用同义词替换需要使用的保留字。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> superman = &#123;</span><br><span class="line">    class: 'alien'</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> superman = &#123;</span><br><span class="line">  klass: <span class="string">'alien'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> superman = &#123;</span><br><span class="line">  type: <span class="string">'alien'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建有动态属性名的对象时，使用可被计算的属性名称。<br><a href="../codes/basic-object.js">include</a></li>
-</ul>
-<ul>
-<li>使用对象属性值的简写。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> lukeSkywalker = <span class="string">'Luke Skywalker'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  lukeSkywalker: lukeSkywalker,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  lukeSkywalker,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在对象属性声明前把简写的属性分组。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> anakinSkywalker = <span class="string">'Anakin Skywalker'</span>;</span><br><span class="line"><span class="keyword">const</span> lukeSkywalker = <span class="string">'Luke Skywalker'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    episodeOne: <span class="number">1</span>,</span><br><span class="line">    twoJedisWalkIntoACantina: <span class="number">2</span>,</span><br><span class="line">    lukeSkywalker,</span><br><span class="line">    episodeThree: <span class="number">3</span>,</span><br><span class="line">    mayTheFourth: <span class="number">4</span>,</span><br><span class="line">    anakinSkywalker,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    lukeSkywalker,</span><br><span class="line">    anakinSkywalker,</span><br><span class="line">    episodeOne: <span class="number">1</span>,</span><br><span class="line">    twoJedisWalkIntoACantina: <span class="number">2</span>,</span><br><span class="line">    episodeThree: <span class="number">3</span>,</span><br><span class="line">    mayTheFourth: <span class="number">4</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><ul>
-<li>使用直接量创建数组。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> items = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> items = [];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>向数组增加元素时使用 Array#push 来替代直接赋值。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> someStack = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line">someStack[someStack.length] = <span class="string">'something string'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">someStack.push(<span class="string">'something string'</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用拓展运算符 <code>...</code> 复制数组。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> len = items.length;</span><br><span class="line"><span class="keyword">const</span> itemsCopy = [];</span><br><span class="line"><span class="keyword">let</span> i;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    itemsCopy[i] = items[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> itemsCopy = [...items];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用 Array#slice 将类数组对象转换成数组。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trigger</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><ul>
-<li>使用单引号 <code>&#39;&#39;</code> 包裹字符串。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">"Bob Parr"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">'Bob Parr'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> fullName = <span class="string">"Bob "</span> + <span class="keyword">this</span>.lastName;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> fullName = <span class="string">'Bob '</span> + <span class="keyword">this</span>.lastName;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>超过 100 个字符的字符串应该使用连接符写成多行。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> errorMessage = <span class="string">'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> errorMessage = <span class="string">'This is a super long error that was thrown because \</span></span><br><span class="line"><span class="string">of Batman. When you stop to think about how Batman had anything to do \</span></span><br><span class="line"><span class="string">with this, you would get nowhere \</span></span><br><span class="line"><span class="string">fast.'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> errorMessage = <span class="string">'This is a super long error that was thrown because '</span> +</span><br><span class="line">    <span class="string">'of Batman. When you stop to think about how Batman had anything to do '</span> +</span><br><span class="line">    <span class="string">'with this, you would get nowhere fast.'</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>程序化生成字符串时，使用模板字符串代替字符串连接。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'How are you, '</span> + name + <span class="string">'?'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="string">'How are you, '</span>, name, <span class="string">'?'</span>].join();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`How are you, <span class="subst">$&#123;name&#125;</span>?`</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><ul>
-<li>函数表达式：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匿名函数表达式</span></span><br><span class="line"><span class="keyword">const</span> anonymous = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名函数表达式</span></span><br><span class="line"><span class="keyword">const</span> named = <span class="function"><span class="keyword">function</span> <span class="title">named</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 立即调用的函数表达式（IIFE）</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Welcome to the Internet. Please follow me.'</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>永远不要在一个非函数代码块（<code>if</code>、<code>while</code> 等）中声明一个函数，然后把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">if</span> (currentUser) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Nope.'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">let</span> test;</span><br><span class="line"><span class="keyword">if</span> (currentUser) &#123;</span><br><span class="line">    test = <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Yup.'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>永远不要把参数命名为 <code>arguments</code>。这将取代函数作用域内的 <code>arguments</code> 对象。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nope</span>(<span class="params">name, options, arguments</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...stuff...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">yup</span>(<span class="params">name, options, args</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...stuff...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>尽量少用 arguments。可以选择 rest 语法 … 替代。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">concatenateAll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> args.join(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">concatenateAll</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> args.join(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>直接给函数的参数指定默认值，不要使用一个变化的函数参数。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleThings</span>(<span class="params">opts</span>) </span>&#123;</span><br><span class="line">  opts = opts || &#123;&#125;;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleThings</span>(<span class="params">opts = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>直接给函数参数赋值时需要避免副作用。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params">a = b++</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line">count();  <span class="comment">// =&gt; 1</span></span><br><span class="line">count();  <span class="comment">// =&gt; 2</span></span><br><span class="line">count(<span class="number">3</span>); <span class="comment">// =&gt; 3</span></span><br><span class="line">count();  <span class="comment">// =&gt; 3</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -2425,10 +2454,6 @@ class_method_control_brace:
                     
                       
                     
-                      
-                    
-                      
-                    
                     <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -2441,12 +2466,6 @@ class_method_control_brace:
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
-                    
-                      
-                    
-                      
                     
                       
                     
@@ -2644,6 +2663,326 @@ class_method_control_brace:
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
