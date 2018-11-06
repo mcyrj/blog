@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="#关于「能愿动词」的使用 为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下：  必须 (MUST)：绝对，严格遵循，请照做，无条件遵守； 一定不可 (MUST NOT)：禁令，严令禁止； 应该 (SHOULD) ：强烈建议这样做，但是不强求； 不该 (SHOULD NOT)：强烈不建议这样做，但是不强求； 可以 (MAY) 和 可选 (OPTIONAL) ：选择性高一点，在这个文档内，此词">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python语言规范">
+<meta property="og:url" content="http://yoursite.com/2018/11/06/python-02/index.html">
+<meta property="og:site_name" content="小马过河">
+<meta property="og:description" content="#关于「能愿动词」的使用 为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下：  必须 (MUST)：绝对，严格遵循，请照做，无条件遵守； 一定不可 (MUST NOT)：禁令，严令禁止； 应该 (SHOULD) ：强烈建议这样做，但是不强求； 不该 (SHOULD NOT)：强烈不建议这样做，但是不强求； 可以 (MAY) 和 可选 (OPTIONAL) ：选择性高一点，在这个文档内，此词">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-06T06:32:14.250Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python语言规范">
+<meta name="twitter:description" content="#关于「能愿动词」的使用 为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下：  必须 (MUST)：绝对，严格遵循，请照做，无条件遵守； 一定不可 (MUST NOT)：禁令，严令禁止； 应该 (SHOULD) ：强烈建议这样做，但是不强求； 不该 (SHOULD NOT)：强烈不建议这样做，但是不强求； 可以 (MAY) 和 可选 (OPTIONAL) ：选择性高一点，在这个文档内，此词">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/06/python-02/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Python语言规范 | 小马过河</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小马过河</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">小马过河的分享</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/06/python-02/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mcyrj">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马过河">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python语言规范
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-06 14:06:46 / 修改时间：14:32:14" itemprop="dateCreated datePublished" datetime="2018-11-06T14:06:46+08:00">2018-11-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Python开发标准/" itemprop="url" rel="index"><span itemprop="name">Python开发标准</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#关于「能愿动词」的使用</p>
+<p>为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下：</p>
+<ul>
+<li><code>必须 (MUST)</code>：绝对，严格遵循，请照做，无条件遵守；</li>
+<li><code>一定不可 (MUST NOT)</code>：禁令，严令禁止；</li>
+<li><code>应该 (SHOULD)</code> ：强烈建议这样做，但是不强求；</li>
+<li><code>不该 (SHOULD NOT)</code>：强烈不建议这样做，但是不强求；</li>
+<li><code>可以 (MAY)</code> 和 <code>可选 (OPTIONAL)</code> ：选择性高一点，在这个文档内，此词语使用较少；</li>
+</ul>
+<blockquote>
+<p>参见：<a href="http://www.ietf.org/rfc/rfc2119.txt" target="_blank" rel="noopener">RFC 2119</a></p>
+</blockquote>
+<h2 id="1-Tip"><a href="#1-Tip" class="headerlink" title="1. Tip"></a>1. Tip</h2><ul>
+<li>定义:<br>pylint是一个在Python源代码中查找bug的工具. 对于C和C++这样的不那么动态的(译者注: 原文是less dynamic)语言, 这些bug通常由编译器来捕获. 由于Python的动态特性, 有些警告可能不对. 不过伪告警应该很少.</li>
+<li>优点:<br>可以捕获容易忽视的错误, 例如输入错误, 使用未赋值的变量等.</li>
+<li>缺点:<br>pylint不完美. 要利用其优势, 我们有时侯需要: a) 围绕着它来写代码 b) 抑制其告警 c) 改进它, 或者d) 忽略它.</li>
+<li>结论:<br>确保对你的代码运行pylint.抑制不准确的警告,以便能够将其他警告暴露出来。<br>你可以通过设置一个行注释来抑制告警. 例如:<br>dict = ‘something awful’  # Bad Idea… pylint: disable=redefined-builtin<br>pylint警告是以一个数字编号(如 C0112 )和一个符号名(如 empty-docstring )来标识的. 在编写新代码或更新已有代码时对告警进行抑制, 推荐使用符号名来标识.<br>如果警告的符号名不够见名知意，那么请对其增加一个详细解释。<br>采用这种抑制方式的好处是我们可以轻松查找抑制并回顾它们.<br>你可以使用命令 pylint –list-msgs 来获取pylint告警列表. 你可以使用命令 pylint –help-msg=C6409 , 以获取关于特定消息的更多信息.<br>相比较于之前使用的 pylint: disable-msg , 本文推荐使用 pylint: disable .<br>要抑制”参数未使用”告警, 你可以用”<em>”作为参数标识符, 或者在参数名前加”unused</em>”. 遇到不能改变参数名的情况, 你可以通过在函数开头”提到”它们来消除告警. 例如:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(a, unused_b, unused_c, d=None, e=None)</span>:</span></span><br><span class="line">    _ = d, e</span><br><span class="line">    <span class="keyword">return</span> a</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-导入"><a href="#2-导入" class="headerlink" title="2. 导入"></a>2. 导入</h2><p>仅对包和模块使用导入</p>
+<ul>
+<li>定义:<br>模块间共享代码的重用机制.</li>
+<li>优点:<br>命名空间管理约定十分简单. 每个标识符的源都用一种一致的方式指示. x.Obj表示Obj对象定义在模块x中.</li>
+<li>缺点:<br>模块名仍可能冲突. 有些模块名太长, 不太方便.</li>
+<li>结论:<br>使用 import x 来导入包和模块.<br>使用 from x import y , 其中x是包前缀, y是不带前缀的模块名.<br>使用 from x import y as z, 如果两个要导入的模块都叫做y或者y太长了.<br>例如, 模块 sound.effects.echo 可以用如下方式导入:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sound.effects <span class="keyword">import</span> echo</span><br><span class="line">...</span><br><span class="line">echo.EchoFilter(input, output, delay=<span class="number">0.7</span>, atten=<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>导入时不要使用相对名称. 即使模块在同一个包中, 也要使用完整包名. 这能帮助你避免无意间导入一个包两次.</p>
+<h2 id="3-包"><a href="#3-包" class="headerlink" title="3. 包"></a>3. 包</h2><p>使用模块的全路径名来导入每个模块</p>
+<ul>
+<li>优点:<br>避免模块名冲突. 查找包更容易.</li>
+<li>缺点:<br>部署代码变难, 因为你必须复制包层次.</li>
+<li>结论:<br>所有的新代码都应该用完整包名来导入每个模块.<br>应该像下面这样导入:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Reference in code with complete name.</span></span><br><span class="line"><span class="keyword">import</span> sound.effects.echo</span><br><span class="line"></span><br><span class="line"><span class="comment"># Reference in code with just module name (preferred).</span></span><br><span class="line"><span class="keyword">from</span> sound.effects <span class="keyword">import</span> echo</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="4-异常"><a href="#4-异常" class="headerlink" title="4. 异常"></a>4. 异常</h2><p>允许使用异常, 但必须小心</p>
+<ul>
+<li>定义:<br>异常是一种跳出代码块的正常控制流来处理错误或者其它异常条件的方式.</li>
+<li>优点:<br>正常操作代码的控制流不会和错误处理代码混在一起. 当某种条件发生时, 它也允许控制流跳过多个框架. 例如, 一步跳出N个嵌套的函数, 而不必继续执行错误的代码.</li>
+<li>缺点:<br>可能会导致让人困惑的控制流. 调用库时容易错过错误情况.</li>
+<li>结论:<br>异常必须遵守特定条件:</li>
+</ul>
+<ol>
+<li>像这样触发异常: raise MyException(“Error message”) 或者 raise MyException . 不要使用两个参数的形式( raise MyException, “Error message” )或者过时的字符串异常( raise “Error message” ).</li>
+<li>模块或包应该定义自己的特定域的异常基类, 这个基类应该从内建的Exception类继承. 模块的异常基类应该叫做”Error”.</li>
+<li>class Error(Exception):</li>
+<li>pass</li>
+<li>永远不要使用 except: 语句来捕获所有异常, 也不要捕获 Exception 或者 StandardError , 除非你打算重新触发该异常, 或者你已经在当前线程的最外层(记得还是要打印一条错误消息). 在异常这方面, Python非常宽容, except: 真的会捕获包括Python语法错误在内的任何错误. 使用 except: 很容易隐藏真正的bug.</li>
+<li>尽量减少try/except块中的代码量. try块的体积越大, 期望之外的异常就越容易被触发. 这种情况下, try/except块将隐藏真正的错误.</li>
+<li>使用finally子句来执行那些无论try块中有没有异常都应该被执行的代码. 这对于清理资源常常很有用, 例如关闭文件.</li>
+<li>当捕获异常时, 使用 as 而不要用逗号. 例如<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> Error</span><br><span class="line"><span class="keyword">except</span> Error <span class="keyword">as</span> error:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="5-全局变量"><a href="#5-全局变量" class="headerlink" title="5. 全局变量"></a>5. 全局变量</h2><p>避免全局变量</p>
+<ul>
+<li>定义:<br>定义在模块级的变量.</li>
+<li>优点:<br>偶尔有用.</li>
+<li>缺点:<br>导入时可能改变模块行为, 因为导入模块时会对模块级变量赋值.</li>
+<li>结论:<br>避免使用全局变量, 用类变量来代替. 但也有一些例外:</li>
+</ul>
+<ol>
+<li>脚本的默认选项.</li>
+<li>模块级常量. 例如:　PI = 3.14159. 常量应该全大写, 用下划线连接.</li>
+<li>有时候用全局变量来缓存值或者作为函数返回值很有用.</li>
+<li>如果需要, 全局变量应该仅在模块内部可用, 并通过模块级的公共函数来访问.</li>
+</ol>
+<h2 id="6-嵌套-局部-内部类或函数"><a href="#6-嵌套-局部-内部类或函数" class="headerlink" title="6. 嵌套/局部/内部类或函数"></a>6. 嵌套/局部/内部类或函数</h2><p>鼓励使用嵌套/本地/内部类或函数</p>
+<ul>
+<li>定义:<br>类可以定义在方法, 函数或者类中. 函数可以定义在方法或函数中. 封闭区间中定义的变量对嵌套函数是只读的.</li>
+<li>优点:<br>允许定义仅用于有效范围的工具类和函数.</li>
+<li>缺点:<br>嵌套类或局部类的实例不能序列化(pickled).</li>
+<li>结论:<br>推荐使用.</li>
+</ul>
+<h2 id="7-列表推导"><a href="#7-列表推导" class="headerlink" title="7. 列表推导"></a>7. 列表推导</h2><ul>
+<li>定义:<br>列表推导(list comprehensions)与生成器表达式(generator expression)提供了一种简洁高效的方式来创建列表和迭代器, 而不必借助map(), filter(), 或者lambda.</li>
+<li>优点:<br>简单的列表推导可以比其它的列表创建方法更加清晰简单. 生成器表达式可以十分高效, 因为它们避免了创建整个列表.</li>
+<li>缺点:<br>复杂的列表推导或者生成器表达式可能难以阅读.</li>
+<li>结论:<br>适用于简单情况. 每个部分应该单独置于一行: 映射表达式, for语句, 过滤器表达式. 禁止多重for语句或过滤器表达式. 复杂情况下还是使用循环.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Yes:</span><br><span class="line">  result = []</span><br><span class="line">  <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">      <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">          <span class="keyword">if</span> x * y &gt; <span class="number">10</span>:</span><br><span class="line">              result.append((x, y))</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> x <span class="keyword">in</span> xrange(<span class="number">5</span>):</span><br><span class="line">      <span class="keyword">for</span> y <span class="keyword">in</span> xrange(<span class="number">5</span>):</span><br><span class="line">          <span class="keyword">if</span> x != y:</span><br><span class="line">              <span class="keyword">for</span> z <span class="keyword">in</span> xrange(<span class="number">5</span>):</span><br><span class="line">                  <span class="keyword">if</span> y != z:</span><br><span class="line">                      <span class="keyword">yield</span> (x, y, z)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> ((x, complicated_transform(x))</span><br><span class="line">          <span class="keyword">for</span> x <span class="keyword">in</span> long_generator_function(parameter)</span><br><span class="line">          <span class="keyword">if</span> x <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>)</span><br><span class="line"></span><br><span class="line">  squares = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line"></span><br><span class="line">  eat(jelly_bean <span class="keyword">for</span> jelly_bean <span class="keyword">in</span> jelly_beans</span><br><span class="line">      <span class="keyword">if</span> jelly_bean.color == <span class="string">'black'</span>)</span><br><span class="line">No:</span><br><span class="line">  result = [(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>) <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">5</span>) <span class="keyword">if</span> x * y &gt; <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> ((x, y, z)</span><br><span class="line">          <span class="keyword">for</span> x <span class="keyword">in</span> xrange(<span class="number">5</span>)</span><br><span class="line">          <span class="keyword">for</span> y <span class="keyword">in</span> xrange(<span class="number">5</span>)</span><br><span class="line">          <span class="keyword">if</span> x != y</span><br><span class="line">          <span class="keyword">for</span> z <span class="keyword">in</span> xrange(<span class="number">5</span>)</span><br><span class="line">          <span class="keyword">if</span> y != z)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="8-默认迭代器和操作符"><a href="#8-默认迭代器和操作符" class="headerlink" title="8. 默认迭代器和操作符"></a>8. 默认迭代器和操作符</h2><p>如果类型支持, 就使用默认迭代器和操作符. 比如列表, 字典及文件等.</p>
+<ul>
+<li>定义:<br>容器类型, 像字典和列表, 定义了默认的迭代器和关系测试操作符(in和not in)</li>
+<li>优点:<br>默认操作符和迭代器简单高效, 它们直接表达了操作, 没有额外的方法调用. 使用默认操作符的函数是通用的. 它可以用于支持该操作的任何类型.</li>
+<li>缺点:<br>你没法通过阅读方法名来区分对象的类型(例如, has_key()意味着字典). 不过这也是优点.</li>
+<li>结论:<br>如果类型支持, 就使用默认迭代器和操作符, 例如列表, 字典和文件. 内建类型也定义了迭代器方法. 优先考虑这些方法, 而不是那些返回列表的方法. 当然，这样遍历容器时，你将不能修改容器.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Yes:  <span class="keyword">for</span> key <span class="keyword">in</span> adict: ...</span><br><span class="line">      <span class="keyword">if</span> key <span class="keyword">not</span> <span class="keyword">in</span> adict: ...</span><br><span class="line">      <span class="keyword">if</span> obj <span class="keyword">in</span> alist: ...</span><br><span class="line">      <span class="keyword">for</span> line <span class="keyword">in</span> afile: ...</span><br><span class="line">      <span class="keyword">for</span> k, v <span class="keyword">in</span> dict.iteritems(): ...</span><br><span class="line">No:   <span class="keyword">for</span> key <span class="keyword">in</span> adict.keys(): ...</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> adict.has_key(key): ...</span><br><span class="line">      <span class="keyword">for</span> line <span class="keyword">in</span> afile.readlines(): ...</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="9-Lambda函数"><a href="#9-Lambda函数" class="headerlink" title="9. Lambda函数"></a>9. Lambda函数</h2><p>适用于单行函数</p>
+<ul>
+<li>定义:<br>与语句相反, lambda在一个表达式中定义匿名函数. 常用于为 map() 和 filter() 之类的高阶函数定义回调函数或者操作符.</li>
+<li>优点:<br>方便.</li>
+<li>缺点:<br>比本地函数更难阅读和调试. 没有函数名意味着堆栈跟踪更难理解. 由于lambda函数通常只包含一个表达式, 因此其表达能力有限.</li>
+<li>结论:<br>适用于单行函数. 如果代码超过60-80个字符, 最好还是定义成常规(嵌套)函数.<br>对于常见的操作符，例如乘法操作符，使用 operator 模块中的函数以代替lambda函数. 例如, 推荐使用 operator.mul , 而不是 lambda x, y: x * y .</li>
+</ul>
+<h2 id="10-条件表达式"><a href="#10-条件表达式" class="headerlink" title="10. 条件表达式"></a>10. 条件表达式</h2><p>适用于单行函数</p>
+<ul>
+<li>定义:<br>条件表达式是对于if语句的一种更为简短的句法规则. 例如: x = 1 if cond else 2 .</li>
+<li>优点:<br>比if语句更加简短和方便.</li>
+<li>缺点:<br>比if语句难于阅读. 如果表达式很长， 难于定位条件.</li>
+<li>结论:<br>适用于单行函数. 在其他情况下，推荐使用完整的if语句.</li>
+</ul>
+<h2 id="11-默认参数值"><a href="#11-默认参数值" class="headerlink" title="11. 默认参数值"></a>11. 默认参数值</h2><p>适用于大部分情况.</p>
+<ul>
+<li>定义:<br>你可以在函数参数列表的最后指定变量的值, 例如, def foo(a, b = 0): . 如果调用foo时只带一个参数, 则b被设为0. 如果带两个参数, 则b的值等于第二个参数.</li>
+<li>优点:<br>你经常会碰到一些使用大量默认值的函数, 但偶尔(比较少见)你想要覆盖这些默认值. 默认参数值提供了一种简单的方法来完成这件事, 你不需要为这些罕见的例外定义大量函数. 同时, Python也不支持重载方法和函数, 默认参数是一种”仿造”重载行为的简单方式.</li>
+<li>缺点:<br>默认参数只在模块加载时求值一次. 如果参数是列表或字典之类的可变类型, 这可能会导致问题. 如果函数修改了对象(例如向列表追加项), 默认值就被修改了.</li>
+<li>结论:<br>鼓励使用, 不过有如下注意事项:<br>不要在函数或方法定义中使用可变对象作为默认值.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Yes: def foo(a, b=None):</span><br><span class="line">         if b is None:</span><br><span class="line">             b = []</span><br><span class="line">No:  def foo(a, b=[]):</span><br><span class="line">         ...</span><br><span class="line">No:  def foo(a, b=time.time()):  # The time the module was loaded???</span><br><span class="line">         ...</span><br><span class="line">No:  def foo(a, b=FLAGS.my_thing):  # sys.argv has not yet been parsed...</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="12-属性"><a href="#12-属性" class="headerlink" title="12. 属性"></a>12. 属性</h2><p>访问和设置数据成员时, 你通常会使用简单, 轻量级的访问和设置函数. 建议用属性（properties）来代替它们.</p>
+<ul>
+<li>定义:<br>一种用于包装方法调用的方式. 当运算量不大, 它是获取和设置属性(attribute)的标准方式.</li>
+<li>优点:<br>通过消除简单的属性(attribute)访问时显式的get和set方法调用, 可读性提高了. 允许懒惰的计算. 用Pythonic的方式来维护类的接口. 就性能而言, 当直接访问变量是合理的, 添加访问方法就显得琐碎而无意义. 使用属性(properties)可以绕过这个问题. 将来也可以在不破坏接口的情况下将访问方法加上.</li>
+<li>缺点:<br>属性(properties)是在get和set方法声明后指定, 这需要使用者在接下来的代码中注意: set和get是用于属性(properties)的(除了用 @property 装饰器创建的只读属性). 必须继承自object类. 可能隐藏比如操作符重载之类的副作用. 继承时可能会让人困惑.</li>
+<li><p>结论:<br>你通常习惯于使用访问或设置方法来访问或设置数据, 它们简单而轻量. 不过我们建议你在新的代码中使用属性. 只读属性应该用 @property 装饰器 来创建.<br>如果子类没有覆盖属性, 那么属性的继承可能看上去不明显. 因此使用者必须确保访问方法间接被调用, 以保证子类中的重载方法被属性调用(使用模板方法设计模式).</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">Yes: <span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">     <span class="class"><span class="keyword">class</span> <span class="title">Square</span><span class="params">(object)</span>:</span></span><br><span class="line">         <span class="string">"""A square with two properties: a writable area and a read-only perimeter.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">         To use:</span></span><br><span class="line"><span class="string">         &gt;&gt;&gt; sq = Square(3)</span></span><br><span class="line"><span class="string">         &gt;&gt;&gt; sq.area</span></span><br><span class="line"><span class="string">         9</span></span><br><span class="line"><span class="string">         &gt;&gt;&gt; sq.perimeter</span></span><br><span class="line"><span class="string">         12</span></span><br><span class="line"><span class="string">         &gt;&gt;&gt; sq.area = 16</span></span><br><span class="line"><span class="string">         &gt;&gt;&gt; sq.side</span></span><br><span class="line"><span class="string">         4</span></span><br><span class="line"><span class="string">         &gt;&gt;&gt; sq.perimeter</span></span><br><span class="line"><span class="string">         16</span></span><br><span class="line"><span class="string">         """</span></span><br><span class="line"></span><br><span class="line">         <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, side)</span>:</span></span><br><span class="line">             self.side = side</span><br><span class="line"></span><br><span class="line">         <span class="function"><span class="keyword">def</span> <span class="title">__get_area</span><span class="params">(self)</span>:</span></span><br><span class="line">             <span class="string">"""Calculates the 'area' property."""</span></span><br><span class="line">             <span class="keyword">return</span> self.side ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line">         <span class="function"><span class="keyword">def</span> <span class="title">___get_area</span><span class="params">(self)</span>:</span></span><br><span class="line">             <span class="string">"""Indirect accessor for 'area' property."""</span></span><br><span class="line">             <span class="keyword">return</span> self.__get_area()</span><br><span class="line"></span><br><span class="line">         <span class="function"><span class="keyword">def</span> <span class="title">__set_area</span><span class="params">(self, area)</span>:</span></span><br><span class="line">             <span class="string">"""Sets the 'area' property."""</span></span><br><span class="line">             self.side = math.sqrt(area)</span><br><span class="line"></span><br><span class="line">         <span class="function"><span class="keyword">def</span> <span class="title">___set_area</span><span class="params">(self, area)</span>:</span></span><br><span class="line">             <span class="string">"""Indirect setter for 'area' property."""</span></span><br><span class="line">             self._SetArea(area)</span><br><span class="line"></span><br><span class="line">         area = property(___get_area, ___set_area,</span><br><span class="line">                         doc=<span class="string">"""Gets or sets the area of the square."""</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">         @property</span></span><br><span class="line">         <span class="function"><span class="keyword">def</span> <span class="title">perimeter</span><span class="params">(self)</span>:</span></span><br><span class="line">             <span class="keyword">return</span> self.side * <span class="number">4</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="13-True-False的求值"><a href="#13-True-False的求值" class="headerlink" title="13. True/False的求值"></a>13. True/False的求值</h2><p>尽可能使用隐式false</p>
+<ul>
+<li>定义:<br>Python在布尔上下文中会将某些值求值为false. 按简单的直觉来讲, 就是所有的”空”值都被认为是false. 因此0， None, [], {}, “” 都被认为是false.</li>
+<li>优点:<br>使用Python布尔值的条件语句更易读也更不易犯错. 大部分情况下, 也更快.</li>
+<li>缺点:<br>对C/C++开发人员来说, 可能看起来有点怪.</li>
+<li>结论:<br>尽可能使用隐式的false, 例如: 使用 if foo: 而不是 if foo != []: . 不过还是有一些注意事项需要你铭记在心:</li>
+</ul>
+<ol>
+<li>永远不要用==或者!=来比较单件, 比如None. 使用is或者is not.</li>
+<li>注意: 当你写下 if x: 时, 你其实表示的是 if x is not None . 例如: 当你要测试一个默认值是None的变量或参数是否被设为其它值. 这个值在布尔语义下可能是false!</li>
+<li>永远不要用==将一个布尔量与false相比较. 使用 if not x: 代替. 如果你需要区分false和None, 你应该用像 if not x and x is not None: 这样的语句.</li>
+<li>对于序列(字符串, 列表, 元组), 要注意空序列是false. 因此 if not seq: 或者 if seq: 比 if len(seq): 或 if not len(seq): 要更好.</li>
+<li>处理整数时, 使用隐式false可能会得不偿失(即不小心将None当做0来处理). 你可以将一个已知是整型(且不是len()的返回结果)的值与0比较.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Yes: <span class="keyword">if</span> <span class="keyword">not</span> users:</span><br><span class="line">         <span class="keyword">print</span> <span class="string">'no users'</span></span><br><span class="line"></span><br><span class="line">     <span class="keyword">if</span> foo == <span class="number">0</span>:</span><br><span class="line">         self.handle_zero()</span><br><span class="line"></span><br><span class="line">     <span class="keyword">if</span> i % <span class="number">10</span> == <span class="number">0</span>:</span><br><span class="line">         self.handle_multiple_of_ten()</span><br><span class="line">No:  <span class="keyword">if</span> len(users) == <span class="number">0</span>:</span><br><span class="line">         <span class="keyword">print</span> <span class="string">'no users'</span></span><br><span class="line"></span><br><span class="line">     <span class="keyword">if</span> foo <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> <span class="keyword">not</span> foo:</span><br><span class="line">         self.handle_zero()</span><br><span class="line"></span><br><span class="line">     <span class="keyword">if</span> <span class="keyword">not</span> i % <span class="number">10</span>:</span><br><span class="line">         self.handle_multiple_of_ten()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意‘0’(字符串)会被当做true.</p>
+<h2 id="14-过时的语言特性"><a href="#14-过时的语言特性" class="headerlink" title="14. 过时的语言特性"></a>14. 过时的语言特性</h2><p>尽可能使用字符串方法取代字符串模块. 使用函数调用语法取代apply(). 使用列表推导, for循环取代filter(), map()以及reduce().</p>
+<ul>
+<li>定义:<br>当前版本的Python提供了大家通常更喜欢的替代品.</li>
+<li>结论:<br>我们不使用不支持这些特性的Python版本, 所以没理由不用新的方式.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Yes: words = foo.split(<span class="string">':'</span>)</span><br><span class="line"></span><br><span class="line">     [x[<span class="number">1</span>] <span class="keyword">for</span> x <span class="keyword">in</span> my_list <span class="keyword">if</span> x[<span class="number">2</span>] == <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">     map(math.sqrt, data)    <span class="comment"># Ok. No inlined lambda expression.</span></span><br><span class="line"></span><br><span class="line">     fn(*args, **kwargs)</span><br><span class="line">No:  words = string.split(foo, <span class="string">':'</span>)</span><br><span class="line"></span><br><span class="line">     map(<span class="keyword">lambda</span> x: x[<span class="number">1</span>], filter(<span class="keyword">lambda</span> x: x[<span class="number">2</span>] == <span class="number">5</span>, my_list))</span><br><span class="line"></span><br><span class="line">     apply(fn, args, kwargs)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="15-函数与方法装饰器"><a href="#15-函数与方法装饰器" class="headerlink" title="15. 函数与方法装饰器"></a>15. 函数与方法装饰器</h2><p>如果好处很显然, 就明智而谨慎的使用装饰器</p>
+<ul>
+<li><p>定义:<br>用于函数及方法的装饰器 (也就是@标记). 最常见的装饰器是@classmethod 和@staticmethod, 用于将常规函数转换成类方法或静态方法. 不过, 装饰器语法也允许用户自定义装饰器. 特别地, 对于某个函数 my_decorator , 下面的两段代码是等效的:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="meta">   @my_decorator</span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">method</span><span class="params">(self)</span>:</span></span><br><span class="line">       <span class="comment"># method body ...</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">method</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># method body ...</span></span><br><span class="line">    method = my_decorator(method)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>优点:<br>优雅的在函数上指定一些转换. 该转换可能减少一些重复代码, 保持已有函数不变(enforce invariants), 等.</p>
+</li>
+<li>缺点:<br>装饰器可以在函数的参数或返回值上执行任何操作, 这可能导致让人惊异的隐藏行为. 而且, 装饰器在导入时执行. 从装饰器代码的失败中恢复更加不可能.</li>
+<li>结论:<br>如果好处很显然, 就明智而谨慎的使用装饰器. 装饰器应该遵守和函数一样的导入和命名规则. 装饰器的python文档应该清晰的说明该函数是一个装饰器. 请为装饰器编写单元测试.<br>避免装饰器自身对外界的依赖(即不要依赖于文件, socket, 数据库连接等), 因为装饰器运行时这些资源可能不可用(由 pydoc 或其它工具导入). 应该保证一个用有效参数调用的装饰器在所有情况下都是成功的.<br>装饰器是一种特殊形式的”顶级代码”. 参考后面关于 Main 的话题.</li>
+</ul>
+<h2 id="16-线程"><a href="#16-线程" class="headerlink" title="16. 线程"></a>16. 线程</h2><p>不要依赖内建类型的原子性.<br>虽然Python的内建类型例如字典看上去拥有原子操作, 但是在某些情形下它们仍然不是原子的(即: 如果<strong>hash</strong>或<strong>eq</strong>被实现为Python方法)且它们的原子性是靠不住的. 你也不能指望原子变量赋值(因为这个反过来依赖字典).<br>优先使用Queue模块的 Queue 数据类型作为线程间的数据通信方式. 另外, 使用threading模块及其锁原语(locking primitives). 了解条件变量的合适使用方式, 这样你就可以使用 threading.Condition 来取代低级别的锁了.</p>
+<h2 id="17-威力过大的特性"><a href="#17-威力过大的特性" class="headerlink" title="17. 威力过大的特性"></a>17. 威力过大的特性</h2><p>避免使用这些特性</p>
+<ul>
+<li>定义:<br>Python是一种异常灵活的语言, 它为你提供了很多花哨的特性, 诸如元类(metaclasses), 字节码访问, 任意编译(on-the-fly compilation), 动态继承, 对象父类重定义(object reparenting), 导入黑客(import hacks), 反射, 系统内修改(modification of system internals), 等等.</li>
+<li>优点:<br>强大的语言特性, 能让你的代码更紧凑.</li>
+<li>缺点:<br>使用这些很”酷”的特性十分诱人, 但不是绝对必要. 使用奇技淫巧的代码将更加难以阅读和调试. 开始可能还好(对原作者而言), 但当你回顾代码, 它们可能会比那些稍长一点但是很直接的代码更加难以理解.</li>
+<li>结论:<br>在你的代码中避免这些特性.</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="mcyrj 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="mcyrj 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/25/javascript-01/" rel="next" title="基本类型">
+                <i class="fa fa-chevron-left"></i> 基本类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="mcyrj">
+            
+              <p class="site-author-name" itemprop="name">mcyrj</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Tip"><span class="nav-number">1.</span> <span class="nav-text">1. Tip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-导入"><span class="nav-number">2.</span> <span class="nav-text">2. 导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-包"><span class="nav-number">3.</span> <span class="nav-text">3. 包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-异常"><span class="nav-number">4.</span> <span class="nav-text">4. 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-全局变量"><span class="nav-number">5.</span> <span class="nav-text">5. 全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-嵌套-局部-内部类或函数"><span class="nav-number">6.</span> <span class="nav-text">6. 嵌套/局部/内部类或函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-列表推导"><span class="nav-number">7.</span> <span class="nav-text">7. 列表推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-默认迭代器和操作符"><span class="nav-number">8.</span> <span class="nav-text">8. 默认迭代器和操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Lambda函数"><span class="nav-number">9.</span> <span class="nav-text">9. Lambda函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-条件表达式"><span class="nav-number">10.</span> <span class="nav-text">10. 条件表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-默认参数值"><span class="nav-number">11.</span> <span class="nav-text">11. 默认参数值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-属性"><span class="nav-number">12.</span> <span class="nav-text">12. 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-True-False的求值"><span class="nav-number">13.</span> <span class="nav-text">13. True/False的求值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-过时的语言特性"><span class="nav-number">14.</span> <span class="nav-text">14. 过时的语言特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-函数与方法装饰器"><span class="nav-number">15.</span> <span class="nav-text">15. 函数与方法装饰器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-线程"><span class="nav-number">16.</span> <span class="nav-text">16. 线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-威力过大的特性"><span class="nav-number">17.</span> <span class="nav-text">17. 威力过大的特性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mcyrj</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

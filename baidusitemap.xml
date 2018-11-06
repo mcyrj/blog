@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2018/10/25/java/</loc>
+    <lastmod>2018-11-06T07:34:06.075Z</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2018/11/06/python-02/</loc>
+    <lastmod>2018-11-06T06:32:14.250Z</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2018/10/20/python-01/</loc>
-    <lastmod>2018-11-06T05:59:07.285Z</lastmod>
+    <lastmod>2018-11-06T06:11:00.215Z</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2018/10/20/php-01/</loc>
     <lastmod>2018-10-29T02:22:53.875Z</lastmod>
